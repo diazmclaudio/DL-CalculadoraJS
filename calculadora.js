@@ -6,10 +6,10 @@ function init(){
 	//variables
 	var resultado = document.getElementById('resultado');
 	var reset = document.getElementById('reset');
-	var suma = document.getElementById('suma');
-	var resta = document.getElementById('resta');
-	var multiplicacion = document.getElementById('multiplicacion');
-	var division = document.getElementById('division');
+	var exponente = document.getElementById('exponente');
+	var logaritmo = document.getElementById('logaritmo');
+	var raiz = document.getElementById('raiz');
+	var potencia = document.getElementById('potencia');
 	var igual = document.getElementById('igual');
 	var uno = document.getElementById('uno');
 	var dos = document.getElementById('dos');
@@ -56,25 +56,25 @@ function init(){
 	reset.onclick = function(e){
   		resetear();
 	}
-	suma.onclick = function(e){
+	exponente.onclick = function(e){
   		operandoa = resultado.textContent;
-  		operacion = "+";
-  		limpiar();
+  		operacion = "Exp";
+  		resolver();
 	}
-	resta.onclick = function(e){
+	logaritmo.onclick = function(e){
   		operandoa = resultado.textContent;
-  		operacion = "-";
-  		limpiar();
+  		operacion = "Log";
+  		resolver();
 	}
-	multiplicacion.onclick = function(e){
+	raiz.onclick = function(e){
   		operandoa = resultado.textContent;
-  		operacion = "*";
-  		limpiar();
+  		operacion = "√";
+  		resolver();
 	}
-	division.onclick = function(e){
+	potencia.onclick = function(e){
   		operandoa = resultado.textContent;
-  		operacion = "/";
-  		limpiar();
+  		operacion = "^2";
+  		resolver();
 	}
 	igual.onclick = function(e){
   		operandob = resultado.textContent;
@@ -97,20 +97,20 @@ function resetear(){
 function resolver(){
 	var res = 0;
 	switch(operacion){
-		case "+":
-			res = parseFloat(operandoa) + parseFloat(operandob);
+		case "Exp":
+			res = Math.exp(parseFloat(operandoa)); 
 			break;
 
-		case "-":
-		    res = parseFloat(operandoa) - parseFloat(operandob);
+		case "Log":
+		    res = Math.log(parseFloat(operandoa)); 
 		    break;
 
-		case "*":
-			res = parseFloat(operandoa) * parseFloat(operandob);
+		case "√":
+			res = Math.sqrt(parseFloat(operandoa));
 			break;
 
-		case "/":
-			res = parseFloat(operandoa) / parseFloat(operandob);
+		case "^2":
+			res = Math.pow(parseFloat(operandoa),2);
 			break;
 	}
 	resetear();
